@@ -12,7 +12,7 @@ countDwon(4);
 
 function countDown(num) {}
 let timerID = setInterval(function () {
-  time--;
+  num--;
 }, 1000);
 
 countDown(4);
