@@ -10,9 +10,11 @@ countDwon(4);
 // "DONE!"
 */
 
-function countDown(num) {}
-let timerID = setInterval(function () {
-  num--;
-}, 1000);
+function countDown(num) {
+  let timerID = setInterval(function () {
+    num--;
+    console.log(time);
+  }, 1000);
+}
 
 countDown(4);
