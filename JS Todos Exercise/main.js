@@ -33,6 +33,9 @@ form.addEventListener('submit', function (e) {
   newTodo.appendChild(removeBtn); // Whenever we add a new todo list, we add a remove button to it.
   todoList.appendChild(newTodo); // Appending the new todo to the list.
   //   input.value = ''; // setting the text box to empty again.
+
+  // Save to local storage
+  //   localStorage.setItem('savedTodoList', JSON.stringify(todoList));
 });
 
 // Mark a todo as completed (cross out the text of the todo)
