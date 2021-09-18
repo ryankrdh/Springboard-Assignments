@@ -22,20 +22,27 @@ const form = document.querySelector('#add-todo');
 const input = document.querySelector('#submit-todo');
 const todoList = document.querySelector('#todo-list');
 
+// Load saved local storage
+if (JSON.parse(localStorage.getItem('savedTodoList'))) {
+  todoList.appendChild(savedTodoList);
+}
+
 // Add a new todo (by submitting a form)
 form.addEventListener('submit', function (e) {
   e.preventDefault();
-  console.log(input.value);
+  //   console.log(input.value);
   const newTodo = document.createElement('li');
   const removeBtn = document.createElement('button');
   removeBtn.innerText = 'Remove Todo'; // Putting a text into the remove button.
   newTodo.innerText = input.value; // setting the submitted input as a text.
   newTodo.appendChild(removeBtn); // Whenever we add a new todo list, we add a remove button to it.
   todoList.appendChild(newTodo); // Appending the new todo to the list.
-  //   input.value = ''; // setting the text box to empty again.
+  // input.value = ''; // setting the text box to empty again.
 
-  // Save to local storage
-  //   localStorage.setItem('savedTodoList', JSON.stringify(todoList));
+  // Save to local storage (( may need to make an array or a key value set. In this case it will have to be a key value since we need to hold information on whether the todo has a strike through text or not.))
+  //   const updateTodoList = [];
+  //   updateTodoList.push(JSON.stringify(todoList));
+  localStorage.setItem('savedTodoList', JSON.stringify(todoList));
 });
 
 // Mark a todo as completed (cross out the text of the todo)
