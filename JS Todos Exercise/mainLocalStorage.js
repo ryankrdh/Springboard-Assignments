@@ -11,30 +11,25 @@ const input = document.querySelector('#submit-todo');
 const todoList = document.querySelector('#todo-list');
 
 // Load saved local storage
+const savedTodos = JSON.parse(localStorage.getItem('savedData'));
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   //   console.log(input.value);
   const newTodo = document.createElement('li');
-  const removeBtn = document.createElement('button');
-  removeBtn.innerText = 'Remove Todo'; // Putting a text into the remove button.
   newTodo.innerText = input.value; // setting the submitted input as a text.
   newTodo.dataset.isStriked = 'false';
-  newTodo.appendChild(removeBtn); // Whenever we add a new todo list, we add a remove button to it.
-  //   input.value = ''; // setting the text box to empty again.
   todoList.appendChild(newTodo); // Appending the new todo to the list.
 
   // Save to local storage (( may need to make an array or a key value set. In this case it will have to be a key value since we need to hold information on whether the todo has a strike through text or not.))
-  savedTodos.push({ task: newTodo.innerText, isStriked: false });
-  localStorage.setItem('todos', JSON.stringify(savedTodos));
+  savedTodos.push({ task: newTodo.innerText, isStriked: 'false' });
+  localStorage.setItem('savedData', JSON.stringify(savedTodos));
 });
 
 // Mark a todo as completed (cross out the text of the todo)
 todoList.addEventListener('click', function (e) {
   //   console.log(e.target.tagName);
-  if (e.target.tagName === 'BUTTON') {
-    e.target.parentElement.remove();
-  } else if (e.target.tagName === 'LI') {
+  if (e.target.tagName === 'LI') {
     // console.log(e.target.innerText);
     e.target.style.textDecoration = 'line-through';
     // toggle boolean value to know if the text is striked for local storage.
