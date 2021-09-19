@@ -6,7 +6,6 @@ Now that you have a functioning todo app, save your todos in localStorage! Make 
 // JS TODOs APP
 
 // --------- I'm stuck.. I just don't know how to solve part B of this problem. ---------- I'll come back to it in the future...
-
 // // Access the form
 // const form = document.querySelector('#add-todo');
 // const input = document.querySelector('#submit-todo');
