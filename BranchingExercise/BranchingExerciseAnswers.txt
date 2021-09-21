@@ -1,0 +1,11 @@
+PART I
+
+1. git branch [name of branch]
+
+2. Fast forward merge only has one straight line, there are not new merge on the master. On the other hand, recursive merges will have some new original commits on the master after you branch and make some commits. Tehrefore, the merge commits for a recursive merge will have two parents.
+
+3. git checkout [name of branch]
+
+4. git branch -d [name of branch], git branch -D [name of branch] this will force delete if there are commits that have not merged yet.
+
+5. merge conflicts happen when both branches have changes to the file or folder so that Git has trouble deciding which to keep.
