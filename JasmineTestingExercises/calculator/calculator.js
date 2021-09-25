@@ -29,8 +29,10 @@ function setupIntialValues() {
   console.log(amountUI);
   const yearsUI = document.querySelector('#loan-years');
   yearsUI.value = defaultValues.years;
+  console.log(yearsUI);
   const rateUI = document.querySelector('#loan-rate');
   rateUI.value = defaultValues.rate;
+  console.log(rateUI);
 }
 
 // Get the current values from the UI
@@ -45,8 +47,21 @@ function update() {
 // that always has 2 decimal places.
 function calculateMonthlyPayment(values) {
   // Amount of monthly rate
-  let monthlyRate = rate / 100 / 12;
-  let numberOfMonths = years * 12;
+  let monthlyRate = rate.values / 100 / 12;
+  let numberOfMonths = years.values * 12;
+
+  let result =
+    (amount.values * monthlyRate) /
+    (1 - (1 + monthlyRate) ** (-1 * numberOfMonths));
+
+  let finalResult = (Math.round(result) / 100).toFixed;
+  //(Math.round() / 100).toFixed;
+  console.log(monthlyRate);
+  console.log(numberOfMonths);
+  console.log(result);
+  console.log(finalResult);
+
+  return finalResult;
 }
 
 // Given a string representing the monthly payment value,
