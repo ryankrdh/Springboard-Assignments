@@ -33,13 +33,14 @@ function setupIntialValues() {
   const rateUI = document.querySelector('#loan-rate');
   rateUI.value = defaultValues.rate;
   console.log(rateUI);
+  update();
 }
 
 // Get the current values from the UI
 // Update the monthly payment
 function update() {
   const updateValue = getCurrentUIValues();
-  return;
+  updateMonthly(calculateMonthlyPayment(updateValue));
 }
 
 // Given an object of values (a value has amount, years and rate ),
@@ -47,23 +48,26 @@ function update() {
 // that always has 2 decimal places.
 function calculateMonthlyPayment(values) {
   // Amount of monthly rate
-  let monthlyRate = rate.values / 100 / 12;
-  let numberOfMonths = years.values * 12;
+  let monthlyRate = values.rate / 100 / 12;
+  let numberOfMonths = values.years * 12;
 
-  let result =
-    (amount.values * monthlyRate) /
-    (1 - (1 + monthlyRate) ** (-1 * numberOfMonths));
+  let result = (
+    (values.amount * monthlyRate) /
+    (1 - (1 + monthlyRate) ** (-1 * numberOfMonths))
+  ).toFixed(2);
 
-  let finalResult = (Math.round(result) / 100).toFixed;
+  // let finalResult = Math.round(result).toFixed(2);
   //(Math.round() / 100).toFixed;
-  console.log(monthlyRate);
-  console.log(numberOfMonths);
-  console.log(result);
-  console.log(finalResult);
+  console.log(`monthly rate: ${monthlyRate}`);
+  console.log(`number of months: ${numberOfMonths}`);
+  console.log(`monthly payment result: ${result}`);
 
-  return finalResult;
+  return result;
 }
 
 // Given a string representing the monthly payment value,
 // update the UI to show the value.
-function updateMonthly(monthly) {}
+function updateMonthly(monthly) {
+  const monthlyUI = document.querySelector('#monthly-payment');
+  monthlyUI.innerText = '$' + monthly;
+}
