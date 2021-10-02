@@ -11,6 +11,7 @@ function doubleValues(arr) {
   arr.forEach(function (num) {
     newArray.push(num * 2);
   });
+  console.log(newArray);
   return newArray;
 }
 
