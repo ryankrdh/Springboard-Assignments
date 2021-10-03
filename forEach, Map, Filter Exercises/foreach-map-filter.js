@@ -46,9 +46,10 @@ Examples:
 function showFirstAndLast(arr) {
   let newArray = [];
   arr.forEach(function (str) {
-    newArray.push(`$(str[0])$(str[-1])`);
+    // newArray.push(str[0] + str[-1]);
+    newArray.push(str[0] + str[str.length - 1]);
   });
-  console.log(newArray);
+  //   console.log(newArray);
   return newArray;
 }
 
@@ -61,7 +62,17 @@ Examples:
     // [{name: 'Elie', title:'instructor'}, {name: 'Tim', title:'instructor'}, {name: 'Matt', title:'instructor'}, {name: 'Colt', title:'instructor'}]
 
 */
-function addKeyAndValue(arr, key, value) {}
+
+function addKeyAndValue(arr, key, value) {
+  //   const results = addKeyAndValue.map(function (val) {
+  //     newArray.push(val.key + val.value);
+  //   });
+  arr.forEach(function (val) {
+    val[key] = value;
+  });
+  console.log(newArray);
+  return newArray;
+}
 
 /*
 Write a function called vowelCount which accepts a string and returns an object with the keys as the vowel and the values as the number of times the vowel appears in the string. This function should be case insensitive so a lowercase letter and uppercase letter should count
