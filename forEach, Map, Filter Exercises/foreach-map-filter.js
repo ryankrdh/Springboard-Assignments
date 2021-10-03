@@ -7,14 +7,14 @@ Examples:
 
 */
 
-// function doubleValues(arr) {
-//   let newArray = [];
-//   arr.forEach(function (num) {
-//     newArray.push(num * 2);
-//   });
-//   console.log(newArray);
-//   return newArray;
-// }
+function doubleValues(arr) {
+  let newArray = [];
+  arr.forEach(function (num) {
+    newArray.push(num * 2);
+  });
+  //   console.log(newArray);
+  return newArray;
+}
 
 /*
 Write a function called onlyEvenValues which accepts an array and returns a new array with only the even values in the array passed to the function
@@ -31,6 +31,7 @@ function onlyEvenValues(arr) {
       newArray.push(num);
     }
   });
+  //   console.log(newArray);
   return newArray;
 }
 
@@ -42,7 +43,14 @@ Examples:
     showFirstAndLast(['hi', 'goodbye', 'smile']) // ['hi', 'ge', 'se']
 
 */
-function showFirstAndLast(arr) {}
+function showFirstAndLast(arr) {
+  let newArray = [];
+  arr.forEach(function (str) {
+    newArray.push(`$(str[0])$(str[-1])`);
+  });
+  console.log(newArray);
+  return newArray;
+}
 
 /*
 Write a function called addKeyAndValue which accepts an array of objects, a key, and a value and returns the array passed to the function with the new key and value added for each object 
