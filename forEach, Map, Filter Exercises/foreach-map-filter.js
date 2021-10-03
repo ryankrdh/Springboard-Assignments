@@ -6,14 +6,15 @@ Examples:
     doubleValues([5,1,2,3,10]) // [10,2,4,6,20]
 
 */
-function doubleValues(arr) {
-  let newArray = [];
-  arr.forEach(function (num) {
-    newArray.push(num * 2);
-  });
-  console.log(newArray);
-  return newArray;
-}
+
+// function doubleValues(arr) {
+//   let newArray = [];
+//   arr.forEach(function (num) {
+//     newArray.push(num * 2);
+//   });
+//   console.log(newArray);
+//   return newArray;
+// }
 
 /*
 Write a function called onlyEvenValues which accepts an array and returns a new array with only the even values in the array passed to the function
@@ -23,7 +24,15 @@ Examples:
     onlyEvenValues([5,1,2,3,10]) // [2,10]
 
 */
-function onlyEvenValues(arr) {}
+function onlyEvenValues(arr) {
+  let newArray = [];
+  arr.forEach(function (num) {
+    if (num % 2 === 0) {
+      newArray.push(num);
+    }
+  });
+  return newArray;
+}
 
 /*
 Write a function called showFirstAndLast which accepts an array of strings and returns a new array with only the first and last character of each string.
