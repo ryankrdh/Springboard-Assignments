@@ -235,14 +235,21 @@ Examples:
     findInObj([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner',true) // {first: 'Tim', last:"Garcia", isCatOwner: true}
 */
 
+// function findInObj(arr, key, searchValue) {
+//   return arr.filter(function (val) {
+//     if (searchValue) {
+//       return val;
+//     } else {
+//       return undefined;
+//     }
+//   });
+// }
+
 function findInObj(arr, key, searchValue) {
   return arr.filter(function (val) {
-    if (searchValue) {
-      return val;
-    } else {
-      return undefined;
-    }
-  });
+    // console.log(val[key] === searchValue);
+    return val[key] === searchValue;
+  })[0];
 }
 
 /*
@@ -254,7 +261,27 @@ Examples:
     removeVowels('ZZZZZZ') // ('zzzzzz')
 */
 
-function removeVowels(str) {}
+// function removeVowels(str) {
+//   let splitArr = str.split('');
+//   const vowels = 'aeiou';
+//   return str
+//     .filter(function (val) {
+//       let lowerCased = val.toLowerCase();
+//       return vowels.indexOf(lowerCased) === -1;
+//     })
+//     .join('');
+// }
+
+function removeVowels(str) {
+  const vowels = 'aeiou';
+  return str
+    .toLowerCase()
+    .split('')
+    .filter(function (val) {
+      return vowels.indexOf(val) === -1;
+    })
+    .join('');
+}
 
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and filter to double and then filter the odd numbers).
@@ -264,4 +291,12 @@ Examples:
     doubleOddNumbers([4,4,4,4,4]) // []
 */
 
-function doubleOddNumbers(arr) {}
+function doubleOddNumbers(arr) {
+  return arr
+    .filter(function (val) {
+      return val % 2 === -1;
+    })
+    .map(function (val) {
+      return val * 2;
+    });
+}
