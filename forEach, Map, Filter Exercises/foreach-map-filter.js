@@ -70,8 +70,8 @@ function addKeyAndValue(arr, key, value) {
   arr.forEach(function (val) {
     val[key] = value;
   });
-  console.log(newArray);
-  return newArray;
+  console.log(arr);
+  return arr;
 }
 
 /*
@@ -80,11 +80,41 @@ Write a function called vowelCount which accepts a string and returns an object 
 Examples:
     vowelCount('Elie') // {e:2,i:1};
     vowelCount('Tim') // {i:1};
-    vowelCount('Matt') // {a:1})
+    vowelCount('Matt') // {a:1}) s
     vowelCount('hmmm') // {};
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
-function vowelCount(str) {}
+// function vowelCount(str) {
+//   str.forEach(function (val) {
+//     newArray = [];
+//     const isVowel = function (val) {
+//       return 'aeiou'.indexOf(val) !== -1;
+//     };
+//     if (isVowel(val)) {
+//       return true;
+//     }
+//   });
+// }
+
+function vowelCount(str) {
+  let splitArr = str.split('');
+  let obj = {};
+  const vowels = 'aeiou';
+
+  splitArr.forEach(function (letter) {
+    let lowerCasedLetter = letter.toLowerCase();
+    if (vowels.indexOf(lowerCasedLetter) !== -1) {
+      if (obj[lowerCasedLetter]) {
+        obj[lowerCasedLetter]++;
+        console.log(`adds 1: ${lowerCasedLetter}`);
+      } else {
+        obj[lowerCasedLetter] = 1;
+        console.log(`sets to 1 ${lowerCasedLetter}`);
+      }
+    }
+  });
+  return obj;
+}
 
 /*
 Write a function called doubleValuesWithMap which accepts an array and returns a new array with all the values in the array passed to the function doubled
