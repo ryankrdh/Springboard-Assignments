@@ -169,6 +169,8 @@ Examples:
 
 function extractKey(arr, key) {
   return arr.map(function (val) {
+    // console.log(val.name);
+    // return val.name;
     return val[key];
   });
 }
@@ -182,7 +184,7 @@ Examples:
 
 function extractFullName(arr) {
   return arr.map(function (val) {
-    return val[key[0]] + val[key[1]];
+    return val.first + ' ' + val.last;
   });
 }
 
