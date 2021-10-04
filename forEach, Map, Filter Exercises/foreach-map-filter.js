@@ -70,7 +70,7 @@ function addKeyAndValue(arr, key, value) {
   arr.forEach(function (val) {
     val[key] = value;
   });
-  console.log(arr);
+  //   console.log(arr);
   return arr;
 }
 
@@ -106,13 +106,14 @@ function vowelCount(str) {
     if (vowels.indexOf(lowerCasedLetter) !== -1) {
       if (obj[lowerCasedLetter]) {
         obj[lowerCasedLetter]++;
-        console.log(`adds 1: ${lowerCasedLetter}`);
+        // console.log(`adds 1: ${lowerCasedLetter}`);
       } else {
         obj[lowerCasedLetter] = 1;
-        console.log(`sets to 1 ${lowerCasedLetter}`);
+        // console.log(`sets to 1 ${lowerCasedLetter}`);
       }
     }
   });
+  //   console.log(obj);
   return obj;
 }
 
@@ -124,7 +125,20 @@ Examples:
     doubleValuesWithMap([1,-2,-3]) // [2,-4,-6]
 */
 
-function doubleValuesWithMap(arr) {}
+// function doubleValuesWithMap(arr) {
+//   let newArray = [];
+//   arr.map(function (val) {
+//     newArray.push(val * 2);
+//   });
+//   console.log(newArray);
+// }
+
+function doubleValuesWithMap(arr) {
+  return arr.map(function (val) {
+    // console.log(val * 2);
+    return val * 2;
+  });
+}
 
 /*
 Write a function called valTimesIndex which accepts an array and returns a new array with each value multiplied by the index it is currently at in the array.
