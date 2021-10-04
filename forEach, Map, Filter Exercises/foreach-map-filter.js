@@ -294,7 +294,7 @@ Examples:
 function doubleOddNumbers(arr) {
   return arr
     .filter(function (val) {
-      return val % 2 === -1;
+      return val % 2 !== 0;
     })
     .map(function (val) {
       return val * 2;
