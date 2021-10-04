@@ -209,15 +209,23 @@ Examples:
     find([1,2,3,4,5], 10) // undefined
 */
 
+// function find(arr, searchValue) {
+//   return arr.filter(function (val) {
+//     for (let i = 0; i < arr.length; i++) {
+//       if (val === searchValue) {
+//         console.log(arr[0]);
+//         return arr[0];
+//       } else {
+//         return undefined;
+//       }
+//     }
+//   });
+// }
+
 function find(arr, searchValue) {
-  arr.filter(function (val) {
-    if (val === searchValue) {
-      console.log(arr[0]);
-      return arr[0];
-    } else {
-      return undefined;
-    }
-  });
+  return arr.filter(function (val) {
+    return val === searchValue;
+  })[0];
 }
 
 /*
