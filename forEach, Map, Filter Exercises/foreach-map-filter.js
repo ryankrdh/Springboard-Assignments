@@ -169,7 +169,7 @@ Examples:
 
 function extractKey(arr, key) {
   return arr.map(function (val) {
-    return arr[key];
+    return val[key];
   });
 }
 
