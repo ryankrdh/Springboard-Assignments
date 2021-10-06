@@ -56,9 +56,11 @@ Examples:
 */
 
 function addKeyAndValue(arr, key, value) {
-  return arr.reduce(function (accum, nextVal) {
-    accum.push(nextVal[value]);
-  }, {});
+  return arr.reduce(function (accum, nextVal, idx) {
+    // accum.push(nextVal[value]);
+    accum[idx][key] = value;
+    return accum;
+  }, arr);
 }
 
 /*
