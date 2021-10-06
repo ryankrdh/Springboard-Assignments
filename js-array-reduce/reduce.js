@@ -26,13 +26,18 @@ Examples:
 
 function vowelCount(str) {
   const vowels = 'aeiou';
+  //   const accum = {};
   return str.split('').reduce(function (accum, nextVal) {
     let lowerCased = nextVal.toLowerCase();
     if (vowels.indexOf(lowerCased) !== -1) {
-      accum[lowerCased]++;
+      if (accum[lowerCased]) {
+        accum[lowerCased]++;
+      } else {
+        accum[lowerCased] = 1;
+      }
     }
-    accum[lowerCased] = 1;
-  });
+    return accum;
+  }, {});
 }
 
 /*
@@ -50,7 +55,11 @@ Examples:
        ]
 */
 
-function addKeyAndValue(arr, key, value) {}
+function addKeyAndValue(arr, key, value) {
+  return arr.reduce(function (accum, nextVal) {
+    accum.push(nextVal[value]);
+  }, {});
+}
 
 /*
 Write a function called partition which accepts an array and a callback and returns an array with two arrays inside of it. The partition function should run the callback function on each value in the array and if the result of the callback function at that specific value is true, the value should be placed in the first subarray. If the result of the callback function at that specific value is false, the value should be placed in the second subarray. 
