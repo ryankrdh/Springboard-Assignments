@@ -25,5 +25,8 @@ const cannot be redeclared or reassigned, it's block scoped, and it does not get
 let can be reassigned and you do not need to assign a variable when declaring it.
 const cannot be reassigned and you need to assign a variable when declaring.
 
+4. what is hoisting. 
+hoisting is when javascript reads all the codes first before funning so that it has access to the variable name even if the value is undefined and will be filled in later.
+
 
 */
