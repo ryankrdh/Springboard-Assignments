@@ -36,3 +36,6 @@ mergeObjects({a:1, b:2}, {c:3, d:4}) // {a:1, b:2, c:3, d:4}
 const doubleAndReturnArgs = (arr, ...args) => [...arr, ...args.map(value => value * 2)]
 doubleAndReturnArgs([1,2,3],4,4) // [1,2,3,8,8]
 doubleAndReturnArgs([2],10,4) // [2, 20, 8]
+
+// 5. Slice and Dice!
+// For this section, write the following functions using rest, spread and refactor these functions to be arrow functions! Make sure that you are always returning a new array or object and not modifying the existing inputs.
