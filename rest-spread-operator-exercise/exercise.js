@@ -85,6 +85,7 @@ const extend = (array1, array2) => {
 const obj = {
   dog: 'woof',
   cat: 'meow',
+  bird: 'chirp',
 };
 
 const key = 'cow';
@@ -98,18 +99,35 @@ const addKeyVal = (obj, key, val) => {
 
 // /** Return a new object with a key removed. */
 
-// function removeKey(obj, key) {
+const key1 = 'bird';
 
-// }
+const removeKey = (obj, key1) => {
+  let newObj = { ...obj };
+  delete newObj[key1];
+  return newObj;
+};
+
+// console.log(removeKey(obj, key1));
 
 // /** Combine two objects and return a new object. */
 
-// function combine(obj1, obj2) {
+const secondObj = {
+  snake: 'hiss',
+  sheep: 'baa',
+};
 
-// }
+const combine = (obj, secondObj) => {
+  //   const newObj = { ...obj, ...secondObj };
+  //   return newObj;
+  return { ...obj, ...secondObj };
+};
+
+// console.log(combine(obj, secondObj));
 
 // /** Return a new object with a modified key and value. */
 
-// function update(obj, key, val) {
-
-// }
+const update = (obj, key, val) => {
+  let newObj = { ...obj };
+  newObj[key] = val;
+  return newObj;
+};
