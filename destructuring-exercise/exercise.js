@@ -105,6 +105,20 @@ const {
 const { a, b } = obj.numbers;
 // --------------------------------------------------------------------
 
+// ES5 Array Swap
+var arr = [1, 2];
+var temp = arr[0];
+arr[0] = arr[1];
+arr[1] = temp;
+
+// ES2015 One-Line Array Swap with Destructuring
+/* Write an ES2015 Version */
+
+let arr = [1, 2];
+[arr[0], arr[1]] = [arr[1], arr[0]];
+
+console.log(arr);
+
 // --------------------------------------------------------------------
 
 // --------------------------------------------------------------------
