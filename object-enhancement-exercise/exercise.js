@@ -33,4 +33,30 @@ instructor[favoriteNumber] = 'That is my favorite!';
 /* Write an ES2015 Version */
 let favoriteNumber = 42;
 
-const instructor = {};
+const instructor = {
+  firstName: 'Colt',
+  [favoriteNumber]: 'That is my favorite!',
+};
+
+// 3. Object Methods
+var instructor = {
+  firstName: 'Colt',
+  sayHi: function () {
+    return 'Hi!';
+  },
+  sayBye: function () {
+    return this.firstName + ' says bye!';
+  },
+};
+
+// Object Methods ES2015
+/* Write an ES2015 Version */
+const instructor = {
+  firstName: 'Colt',
+  sayHi() {
+    return 'Hi!';
+  },
+  sayBye() {
+    return this.firstName + ' says bye!';
+  },
+};
