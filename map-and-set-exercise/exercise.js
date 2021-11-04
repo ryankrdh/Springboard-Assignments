@@ -67,6 +67,18 @@ vowelCount('awesome'); // Map { 'a' => 1, 'e' => 2, 'o' => 1 }
 vowelCount('Colt'); // Map { 'o' => 1 }
 
 // -----------------------------------------------
+// Classes
+// Classes are a “blueprint” of functionality:
+
+class Triangle {
+  getArea() {
+    return (this.a * this.b) / 2;
+  }
+
+  getHypotenuse() {
+    return Math.sqrt(this.a ** 2 + this.b ** 2);
+  }
+}
 
 // -----------------------------------------------
 
