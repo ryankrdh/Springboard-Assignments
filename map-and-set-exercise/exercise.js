@@ -80,6 +80,36 @@ class Triangle {
   }
 }
 
+let myTri = new Triangle();   // "instantiation" of triangle
+myTri.a = 3;
+myTri.b = 4;
+myTri.getArea();        // 6
+myTri.getHypotenuse();  // 5
+demo/triangle-oo.js
+class Triangle {
+
+  getArea() {
+    return (this.a * this.b) / 2;
+  }
+
+  getHypotenuse() {
+    return Math.sqrt(this.a ** 2 + this.b ** 2);
+  }
+}
+// Defines the methods each instance of Triangle will have
+// Make a new triangle with new Triangle()
+// Can still add/look at arbitrary keys (“properties”)
+// this is “the actual triangle in question”
+// Class names should be UpperCamelCase
+
+// Reduces confusion between triangle (an actual, individual triangle) and Triangle (the class of triangles)
+
+// A triangle is still an object:
+
+typeof myTri;      // 'object'
+But JS knows it’s an “instance of” the Triangle class:
+
+myTri instanceof Triangle;   // true
 // -----------------------------------------------
 
 // -----------------------------------------------
