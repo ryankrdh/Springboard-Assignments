@@ -112,7 +112,7 @@ class Garage {
   }
 }
 
-// ---
+// -----
 
 let garage = new Garage(2);
 garage.vehicles; // []
