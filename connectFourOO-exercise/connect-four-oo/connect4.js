@@ -54,9 +54,8 @@
 let board = []; // array of rows, each row is array of cells  (board[y][x])
 
 class Game {
-  constructor(player1, player2, HEIGHT = 6, WIDTH = 7) {
-    this.player1 = player1;
-    this.player2 = player2;
+  constructor(p1, p2, HEIGHT = 6, WIDTH = 7) {
+    this.player = [p1, p2];
     this.HEIGHT = HEIGHT;
     this.WIDTH = WIDTH;
     this.currPlayer = 1;
@@ -65,21 +64,15 @@ class Game {
     this.gameOver = false;
   }
 
+  /** makeBoard: create in-JS board structure:
+   *   board = array of rows, each row is array of cells  (board[y][x])
+   */
+
   makeBoard() {
     this.board = [];
     for (let y = 0; y < this.HEIGHT; y++) {
       this.board.push(Array.from({ length: this.WIDTH }));
     }
-  }
-}
-
-/** makeBoard: create in-JS board structure:
- *   board = array of rows, each row is array of cells  (board[y][x])
- */
-
-function makeBoard() {
-  for (let y = 0; y < HEIGHT; y++) {
-    board.push(Array.from({ length: WIDTH }));
   }
 }
 
@@ -230,8 +223,17 @@ function checkForWin() {
   }
 }
 
+class Player {
+  constructor(color) {
+    this.color = color;
+  }
+}
+
 document.querySelector('#startButton').addEventListener('click', () => {
-  console.log('hello');
+  let p1 = new Player(document.querySelector('#p1-color').value);
+  let p2 = new Player(document.querySelector('#p2-color').value);
+  new Game(p1, p2);
+  // console.log('hello');
 });
 
 // makeBoard();
