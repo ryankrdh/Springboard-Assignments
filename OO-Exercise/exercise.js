@@ -112,6 +112,8 @@ class Garage {
   }
 }
 
+// ---
+
 let garage = new Garage(2);
 garage.vehicles; // []
 garage.add(new Car('Hyundai', 'Elantra', 2015)); // "Vehicle added!"
