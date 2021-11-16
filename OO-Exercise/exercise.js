@@ -99,12 +99,15 @@ class Garage {
   }
   add(addVehicle) {
     if (!(addVehicle instanceof Vehicle)) {
+      console.log('Only vehicles are allowed in here!');
       return 'Only vehicles are allowed in here!';
     }
     if (this.capacity <= this.vehicles.length) {
+      console.log("Sorry, we're full.");
       return "Sorry, we're full.";
     }
-    this.vehicles.push(newVehicle);
+    this.vehicles.push(addVehicle);
+    console.log('Vehicle added!');
     return 'Vehicle added!';
   }
 }
