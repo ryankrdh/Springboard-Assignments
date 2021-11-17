@@ -52,7 +52,7 @@ class Game {
     this.players = [p1, p2];
     this.HEIGHT = HEIGHT;
     this.WIDTH = WIDTH;
-    this.currPlayer = 1;
+    this.currPlayer = p1;
     this.makeBoard();
     this.makeHtmlBoard();
     this.gameOver = false;
