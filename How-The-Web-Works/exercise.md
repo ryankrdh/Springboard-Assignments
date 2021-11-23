@@ -38,3 +38,8 @@ What are the processes that happen when you type “http://somesite.com/some/pag
 3. The server sends a response to the request made by the client
 4. The browser uses the DOM in the HTML to get all the necessary tools needed for the website like css, images, js, etc
 5. The browser makes a separate HTTP requests for the resources and receives response from the server for each.
+
+Part Two: Practice Tools
+Using curl, make a GET request to the icanhazdadjoke.com API to find all jokes involving the word “pirate”
+Use dig to find what the IP address is for icanhazdadjoke.com
+Make a simple web page and serve it using python3 -m http.server. Visit the page in a browser
