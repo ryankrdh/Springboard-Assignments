@@ -32,3 +32,9 @@ Request headers: Host, User-Agent, Accept, Cookie, Cache-Control
 Response headers: content-type, last-modified, set-cookie, cache-control
 
 What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+
+1. The browser translates the URL into an IP address using DNS
+2. The browser makes a request to the IP address translated by DNS.
+3. The server sends a response to the request made by the client
+4. The browser uses the DOM in the HTML to get all the necessary tools needed for the website like css, images, js, etc
+5. The browser makes a separate HTTP requests for the resources and receives response from the server for each.
