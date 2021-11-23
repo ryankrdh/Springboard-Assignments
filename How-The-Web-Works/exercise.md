@@ -3,28 +3,32 @@ Part One: Solidify Terminology
 In your own terms, define the following terms:
 
 What is HTTP?
+HTTP stands for Hyper Text Transfer Protocol. It determines how the user gets and send the data.
+
 What is a URL?
+URL stands for Uniform Resource Locator. It is an address for a website.
+
 What is DNS?
+DNS stands for Domain Name System. A system that translates URL into IP addresses so computers can use the information.
+
 What is a query string?
+The query string consists of key value pairs.
+
 What are two HTTP verbs and how are they different?
+Two HTTP verbs are GET and POST.
+Using GET will let the client get some type of data from a server
+Using POST will let the client send some data to the server.
+
 What is an HTTP request?
+A HTTP request is when a client requests something from a server.
+
 What is an HTTP response?
+An HTTP response is when a server responds to the client sending the HTTP request.
+
 What is an HTTP header? Give a couple examples of request and response headers you have seen.
+Headers provide additional information about the request or the response.
+Examples:
+Request headers: Host, User-Agent, Accept, Cookie, Cache-Control
+Response headers: content-type, last-modified, set-cookie, cache-control
+
 What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
-Part Two: Practice Tools
-Using curl, make a GET request to the icanhazdadjoke.com API to find all jokes involving the word “pirate”
-Use dig to find what the IP address is for icanhazdadjoke.com
-Make a simple web page and serve it using python3 -m http.server. Visit the page in a browser.
-Part Three: Explore Dev Tools
-Build a very simple HTML form that uses the GET method (it can use the same page URL for the action) when the form is submitted.
-
-Add a field or two to the form and, after submitting it, explore in Chrome Developer tools how you can view the request and response headers.
-
-Edit the page to change the form type to POST, refresh in the browser and re-submit. Do you still see the field in the query string? Explore in Chrome how you can view the request and response headers, as well as the form data.
-
-Part Four: Explore the URL API
-At times, it’s useful for your JavaScript to look at the URL of the browser window and change how the script works depending on parts of that (particularly the query string).
-
-Read about the URL API
-
-Try some of the code examples in the Chrome Console so that you can get comfortable with the basic methods and properties for instances of the URL class.
