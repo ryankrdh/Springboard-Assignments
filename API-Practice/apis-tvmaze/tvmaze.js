@@ -11,6 +11,26 @@
 
 // ** You can use online Json viewer.
 
+// Step 2: Understand Current Code
+// We’ve provided two files for you:
+
+// tvmaze.html
+// All the HTML for the application. You should be able to complete all of the pages for this exercise without having to change anything in this file.
+// tvmaze.js
+// Starter JavaScript for the application.
+// Right now, the application has this feature:
+
+// You can type part of a TV show title into the search form and, on submission, it will return information about a hard coded show. It will show a series of cards with information on the show.
+// Note how we’ve structured this code:
+
+// by having a separate function for searchShows, you can test the “search API for shows” without having to do deal with anything related to the DOM in tests. This also makes this function re-usable if we built a different version of this app with a different front-end (like in React); we could re-use searchShows.
+
+// Play with this function in the console and get a sense for how it works.
+
+// populateShows deals just with inserting the passed-in shows into the DOM. This makes this testable without having to have it tied to the code that gets data from the API.
+
+// our handleSearch event handler ties the two together: it gets the search term, gets the shows using searchShows, and fills in the DOM with populateShows.
+
 //
 //
 //
