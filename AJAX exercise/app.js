@@ -21,6 +21,7 @@
 
 // QUESTIONS: How to find the API KEY?
 // QUESTION: evt.preventDefault(). I understand that this prevents the default action of such as checkbox or submit.. but why do we use it? and is it a good practice to use it on every jquery on method.
+//QUESTION: After I remove all GIFs, another image is fetched.. why?
 
 // --Using JQuery to append ID to variables
 const $appendGif = $('#append-gif');
@@ -45,4 +46,9 @@ $('form').on('submit', async function (evt) {
   });
   console.log(res);
   addGif(res.data);
+});
+
+// .remove() will remove the matched element. .empty() will only remove all child nodes.
+$('#remove-button').on('click', function () {
+  $appendGif.empty();
 });
