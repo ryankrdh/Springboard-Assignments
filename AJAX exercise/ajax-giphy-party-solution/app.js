@@ -20,7 +20,7 @@ function addGif(res) {
 /* handle form submission: clear search box & make ajax call */
 
 $('form').on('submit', async function (evt) {
-  // evt.preventDefault();
+  evt.preventDefault();
 
   // let searchTerm = $searchInput.val();
   // $searchInput.val('');
@@ -31,6 +31,7 @@ $('form').on('submit', async function (evt) {
       api_key: 'MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym',
     },
   });
+  console.log(response);
   addGif(response.data);
 });
 
