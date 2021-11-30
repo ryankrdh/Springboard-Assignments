@@ -197,9 +197,39 @@ async function getEpisodes(id) {
   //       http://api.tvmaze.com/shows/SHOW-ID-HERE/episodes
   // TODO: return array-of-episode-info, as described in docstring above
   //URL: /shows/:id/episodes
-  let res = await axios.get('https://api.tvmaze.com/shows/:id/episodes');
+  let res = await axios.get(`https://api.tvmaze.com/shows/${id}/episodes`);
+  //QUESTION: how come this API URL uses https and the one on top uses http
 
-  let episodes = 
+  //QUESTION: why does this only work with arrow function?
+  // let episodes = res.data.map(function (episode) ({
+  //   // QUESTION: let show = result.show; Why was this necessary at the top in the function searchShows.
+  //   // QUESTION: Also why does it need another ()?
+  //   id: episode.id,
+  //   name: episode.name,
+  //   season: episode.season,
+  //   number: episode.number,
+  // }));
+
+  let episodes = res.data.map((episode) => ({
+    id: episode.id,
+    name: episode.name,
+    season: episode.season,
+    number: episode.number,
+  }));
+
+  return episodes;
 }
 
-function populateEpisodes() {}
+function populateEpisodes(episodes) {
+  // using Jquery to access the dom
+  const $episodeList = $('#episodes-list');
+  // making sure the prev. searched episode list is empty.
+  $episodeList.empty();
+
+  for (let episode of episodes) {
+    let $listOfEpisodes = $(
+      `<li>${episode.name}(season ${episode.season}, number ${episode.number})</li>`
+    );
+    $episodeList.append($episodeList);
+  }
+}
