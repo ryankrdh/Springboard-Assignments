@@ -153,10 +153,11 @@ function populateShows(shows) {
     let $item = $(
       `<div class="col-md-6 col-lg-3 Show" data-show-id="${show.id}">
          <div class="card" data-show-id="${show.id}">
-           <img class="card-img-top" src="${show.image}">
+           <img class="card-image" src="${show.image}">
            <div class="card-body">
              <h5 class="card-title">${show.name}</h5>
              <p class="card-text">${show.summary}</p>
+             <button class="episode-button">List Episodes</button>
            </div>
          </div>
        </div>
@@ -181,6 +182,7 @@ $('#search-form').on('submit', async function handleSearch(evt) {
   $('#episodes-area').hide();
 
   let shows = await searchShows(query);
+  // QUESTION: Whenever we call a function with async, do we have to use await? Not just in the async funciton itself?
 
   populateShows(shows);
 });
@@ -194,4 +196,8 @@ async function getEpisodes(id) {
   //       you can get this by making GET request to
   //       http://api.tvmaze.com/shows/SHOW-ID-HERE/episodes
   // TODO: return array-of-episode-info, as described in docstring above
+  //URL: /shows/:id/episodes
+  let res = await axios.get('https://api.tvmaze.com');
 }
+
+function populateEpisodes() {}
