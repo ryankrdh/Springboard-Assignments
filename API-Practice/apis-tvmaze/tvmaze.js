@@ -44,6 +44,18 @@
 // Step 3: Make AJAX request for Search
 // Remove the hard coded array from the searchShows function and make replace the code with an AJAX request to the search shows api from TVMaze. Make sure that the array of information you return from the function is formatted as described in the comments for the searchShows function.
 
+// Step 4: Add Show Images
+// The TVMaze API includes images for many shows, but we don’t currently use these.
+
+// Explore the docs for the TVMaze API and find how we’d extract an image in the searchShows function. Add this image to the result object returned by this function.
+
+// Update populateShows to show the image. You can do this with the following snippet of HTML, inside the .card div:
+
+// <img class="card-img-top" src="/path/to/image">
+// Be careful how you implement this. Not all shows have images, and if you’re not careful, this will break for shows without images. Make sure that you write this in a way where shows without missing images won’t break your site.
+
+// For shows without an image, you can have it show this generic image instead: https://tinyurl.com/tv-missing
+
 //
 //
 //
@@ -74,6 +86,8 @@
         image: <an image from the show data, or a default imege if no image exists, (image isn't needed until later)>
       }
  */
+const MISSING_IMAGE_URL = 'http://tinyurl.com/missing-tv';
+
 async function searchShows(query) {
   // --QUESTION: Does it better if I use params instead of template literals.
   // let response = await axios.get(
@@ -84,7 +98,7 @@ async function searchShows(query) {
   });
 
   // QUESTION: How to find id, name, summary???
-  // QUESTION: IF you use this to get the properties of the API, it keeps returning promises even though I'm using await.
+  // QUESTION: IF you use this to get the query string of the API, it keeps returning promises even though I'm using await.
   // async function getData() {
   //   const res = await axios.get('https://api.tvmaze.com/search/shows?q=:query');
   // }
@@ -112,6 +126,7 @@ function populateShows(shows) {
     let $item = $(
       `<div class="col-md-6 col-lg-3 Show" data-show-id="${show.id}">
          <div class="card" data-show-id="${show.id}">
+           <img class="card-img-top" src="${show.image}">
            <div class="card-body">
              <h5 class="card-title">${show.name}</h5>
              <p class="card-text">${show.summary}</p>
