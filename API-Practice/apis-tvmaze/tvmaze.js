@@ -197,7 +197,9 @@ async function getEpisodes(id) {
   //       http://api.tvmaze.com/shows/SHOW-ID-HERE/episodes
   // TODO: return array-of-episode-info, as described in docstring above
   //URL: /shows/:id/episodes
-  let res = await axios.get('https://api.tvmaze.com');
+  let res = await axios.get('https://api.tvmaze.com/shows/:id/episodes');
+
+  let episodes = 
 }
 
 function populateEpisodes() {}
