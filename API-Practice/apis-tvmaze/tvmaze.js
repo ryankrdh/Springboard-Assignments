@@ -56,6 +56,33 @@
 
 // For shows without an image, you can have it show this generic image instead: https://tinyurl.com/tv-missing
 
+// Step 5: Add Episode Lists
+// We want to add a feature where clicking an “Episodes” button at the bottom of a show card shows the episodes for this show at the bottom of the page.
+
+// First, implement the getEpisodes function, which is given a show ID. It should return an array of objects with basic information on the episodes for that show, like:
+
+// [
+//   {id: 1234, name: "Pilot", season: "1", number: "1"},
+//   {id: 3434, name: "In the Beginning", season: "1", number: "2"},
+//   /* and so on... */
+// ]
+// To do this, you’ll need to read how to get episode data from TVMaze API.
+
+// Next, write a function, populateEpisodes, which is provided an array of episodes info, and populates that into the #episodes-list part of the DOM.
+
+// The episodes list is a simple <ul>, and the individual episodes can just be basic <li> elements, like <li>Pilot (season 1, number 1)</li>.
+
+// (Also, now that we have episodes, you’ll need to reveal the #episodes-area, which is initially hidden!)
+
+// Add an “Episodes” button at the bottom of each show card
+
+// Add a click handler that listens for clicks on those buttons.
+
+// You’ll need to make sure this eventlistener works even though the shows won’t be present in the initial DOM
+// You’ll need to get the show ID of the show for the button you clicked. To do this, you can read about getting data attributes with jQuery and also how to use jQuery to find something a few levels up in the DOM
+// Then, this should use your getEpisodes and populateEpisodes functions.
+// Make sure you put thought into good variable names and code style for these, and write comments!
+
 //
 //
 //
