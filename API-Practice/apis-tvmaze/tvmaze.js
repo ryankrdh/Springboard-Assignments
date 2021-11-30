@@ -226,10 +226,19 @@ function populateEpisodes(episodes) {
   // making sure the prev. searched episode list is empty.
   $episodeList.empty();
 
+  //uses a for loop to append each episode to the list with the name, season, and number
   for (let episode of episodes) {
     let $listOfEpisodes = $(
       `<li>${episode.name}(season ${episode.season}, number ${episode.number})</li>`
     );
     $episodeList.append($episodeList);
   }
+  // reveals the hidden area.
+  $('episodes-area').show();
 }
+
+// click handler.
+
+$('.episode-button').on('click', function () {
+  console.log('hi');
+});
