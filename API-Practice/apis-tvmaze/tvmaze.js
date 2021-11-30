@@ -31,6 +31,16 @@
 
 // our handleSearch event handler ties the two together: it gets the search term, gets the shows using searchShows, and fills in the DOM with populateShows.
 
+// Notice the data attribute!
+
+// A particularly important thing to note in reading our code is how we used a “data attribute”.
+
+// Data attributes are very useful for when you want to associate some data (in this case, the show ID) in the DOM, so you can recall it later.
+
+// Note in populateShows how we add data-show-id onto the outermost .Show div. Later, when we want to retrieve which show ID was clicked on, we’ll be able to get that show ID.
+
+// You may find it helpful to skim the MDN article linked above.
+
 //
 //
 //
