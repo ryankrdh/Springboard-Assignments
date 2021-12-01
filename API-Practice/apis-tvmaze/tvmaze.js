@@ -229,16 +229,59 @@ function populateEpisodes(episodes) {
   //uses a for loop to append each episode to the list with the name, season, and number
   for (let episode of episodes) {
     let $listOfEpisodes = $(
-      `<li>${episode.name}(season ${episode.season}, number ${episode.number})</li>`
+      `<li>${episode.name}(season ${episode.season}, episode ${episode.number})</li>`
     );
-    $episodeList.append($episodeList);
+    $episodeList.append($listOfEpisodes);
   }
   // reveals the hidden area.
-  $('episodes-area').show();
+  $('#episodes-area').show();
 }
 
 // click handler.
 
-$('.episode-button').on('click', function () {
-  console.log('hi');
-});
+// $('#episode-button').on('click', async function (evt) {
+//   evt.preventDefault();
+//   let showId = $(evt.target).closest('.Show').data('show-id');
+//   let episodes = await getEpisodes(showId);
+//   populateEpisodes(episodes);
+// });
+
+// QUESTION: How come the 1st click handler work and the 2nd one doesnt?
+//1) from AJAX exercise.
+// $('#remove-button').on('click', function () {
+//   $appendGif.empty();
+// });
+
+$('#shows-list').on(
+  'click',
+  '.episode-button',
+  async function handleEpisodeClick(evt) {
+    evt.preventDefault();
+    let showId = $(evt.target).closest('.Show').data('show-id');
+    let episodes = await getEpisodes(showId);
+    populateEpisodes(episodes);
+  }
+);
+
+//2)
+$('#shows-list').on(
+  'click',
+  '.episode-button',
+  async function handleEpisodeClick(evt) {
+    evt.preventDefault();
+    let showId = $(evt.target).closest('.Show').data('show-id');
+    let episodes = await getEpisodes(showId);
+    populateEpisodes(episodes);
+  }
+);
+
+// solution
+// $('#shows-list').on(
+//   'click',
+//   '.episode-button',
+//   async function handleEpisodeClick(evt) {
+//     let showId = $(evt.target).closest('.Show').data('show-id');
+//     let episodes = await getEpisodes(showId);
+//     populateEpisodes(episodes);
+//   }
+// );
