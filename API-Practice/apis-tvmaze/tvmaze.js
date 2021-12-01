@@ -246,24 +246,14 @@ function populateEpisodes(episodes) {
 //   populateEpisodes(episodes);
 // });
 
-// QUESTION: How come the 1st click handler work and the 2nd one doesnt?
-//1) from AJAX exercise.
-// $('#remove-button').on('click', function () {
-//   $appendGif.empty();
-// });
+// QUESTION: How come the 1st click handler work and the 2nd one doesnt? Just to be clear, we are doing #shows-list instead of .episode-button because we need properties passed into the function right?
 
-$('#shows-list').on(
-  'click',
-  '.episode-button',
-  async function handleEpisodeClick(evt) {
-    evt.preventDefault();
-    let showId = $(evt.target).closest('.Show').data('show-id');
-    let episodes = await getEpisodes(showId);
-    populateEpisodes(episodes);
-  }
-);
+// 1) from AJAX exercise.
+$('.episode-button').on('click', function () {
+  console.log('hello');
+});
 
-//2)
+// //2)
 $('#shows-list').on(
   'click',
   '.episode-button',
