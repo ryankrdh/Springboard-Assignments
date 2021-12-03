@@ -200,7 +200,7 @@ async function getEpisodes(id) {
   let res = await axios.get(`https://api.tvmaze.com/shows/${id}/episodes`);
   //QUESTION: how come this API URL uses https and the one on top uses http
 
-  //QUESTION: why does this only work with arrow function?
+  // QUESTION: why does this only work with arrow function?
   // let episodes = res.data.map(function (episode) ({
   //   // QUESTION: let show = result.show; Why was this necessary at the top in the function searchShows.
   //   // QUESTION: Also why does it need another ()?
