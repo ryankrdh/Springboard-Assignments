@@ -9,6 +9,3 @@ I have experience in programming full-stack applications, working mainly on back
 I am very team-driven and passionate, and I'm sure I'll be a great addition to your team.
 
 Would you be interested in connecting with me to discuss any opportunities?
-
-
-
