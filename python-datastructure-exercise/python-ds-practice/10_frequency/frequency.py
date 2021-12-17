@@ -8,4 +8,4 @@ def frequency(lst, search_term):
         0
     """
     return lst.count(search_term)
-    # [num in num for lst if num == search_term]
+    [num for num in lst if num == search_term]
