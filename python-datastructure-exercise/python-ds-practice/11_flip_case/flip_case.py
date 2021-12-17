@@ -11,6 +11,7 @@ def flip_case(phrase, to_swap):
         'AaaaHHH'
 
     """
+    to_swap = to_swap.lower()
     out = ""
 
     for ltr in phrase:
@@ -19,3 +20,5 @@ def flip_case(phrase, to_swap):
         out += ltr
     
     return out
+    
+flip_case('Aaaahhh', 'A')
