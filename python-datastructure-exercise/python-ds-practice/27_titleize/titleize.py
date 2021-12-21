@@ -7,3 +7,7 @@ def titleize(phrase):
         >>> titleize('oNLy cAPITALIZe fIRSt')
         'Only Capitalize First'
     """
+    return phrase.title()
+
+# title() capitalizes all first letter of each word and lowercases everything else
+# capitalize() capitalizes ONLY the first letter of the first word and lowercases everything else.
