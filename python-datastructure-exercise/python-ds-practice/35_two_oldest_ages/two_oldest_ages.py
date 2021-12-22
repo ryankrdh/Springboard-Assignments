@@ -21,3 +21,16 @@ def two_oldest_ages(ages):
     # you may find it helpful to research the `sorted(iter)` function, which
     # can take *any* type of list-like-thing, and returns a new, sorted list
     # from it.
+    
+    uniq_ages = set(ages)
+    # we need to convert the set back into a list in order to use the built in list functions
+    # We can't use list and need to use sorted because set is unordered. Also sorted instead of sort since sort does not return anything, it mutates the list in place while sorted will create a new list.
+    oldest = sorted(uniq_ages)[-2:]
+    return tuple(oldest)
+    
+    
+# print(two_oldest_ages([6, 1, 9, 10, 4, 10, 4]))
+
+# list_ex = [6, 1, 9, 10, 4, 3, 5, 5]
+# list_ex.sort()
+# print(list_ex)
