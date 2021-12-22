@@ -24,3 +24,14 @@ def truncate(phrase, n):
         >>> truncate("Woah", 3)
         '...'
     """
+    if n < 3:
+        return "Truncation must be at least 3 characters."
+    
+    # this line returns the phrase without the periods if the n is greater than +2 of the phrase.
+    if n > len(phrase) + 2:
+        return phrase
+        
+    return phrase[:n - 3] + "..."
+
+# print(truncate("Hello World", 6))
+# print(truncate("Hello World", 13))
