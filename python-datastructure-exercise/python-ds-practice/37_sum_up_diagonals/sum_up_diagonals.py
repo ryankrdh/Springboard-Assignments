@@ -25,14 +25,16 @@ def sum_up_diagonals(matrix):
     for i in range(len(matrix)):
         # TL-to-BR
         total += matrix[i][i] 
+        print(matrix[i][i])
         # BL-to-TR
-        total += matrix[i][-1 -i]
+        total += matrix[i][-1 - i]
+        print(matrix[i][-1 - i])
     return total
     
-# m2 = [
-#         [1, 2, 3],
-#         [4, 5, 6],
-#         [7, 8, 9],
-#     ]
+m2 = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+    ]
     
-# print(sum_up_diagonals(m2))
+print(sum_up_diagonals(m2))
