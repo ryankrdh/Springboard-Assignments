@@ -40,7 +40,7 @@ function addGif(res) {
 
 // --Using JQuery to handle click events.
 $('form').on('submit', async function (evt) {
-  evt.preventDefault(); // QUESTION: evt.preventDefault(). I understand that this prevents the default action of such as checkbox or submit.. but why do we use it? and is it a good practice to use it on every jquery on method.
+  evt.preventDefault();
 
   const res = await axios.get('http://api.giphy.com/v1/gifs/search', {
     params: {
