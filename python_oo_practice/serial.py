@@ -23,11 +23,27 @@ class SerialGenerator:
         """
         Make a new generator, starting at start.
         """
-        self.start = start
+        # QUESTION: In the following code, what is the purpose of self.start = self.next = start
+        self.start = self.next = start
 
     def __repr__(self):
-        return f"<Random number generated {self.start}>"
+        """
+        Shows the representation.
+        """
+        return f"<SerialNumberGenerator start = {self.start} next = {self.next}>"
 
-    
+    def generate(self):
+        """
+        Return next serial.
+        """
+
+        self.next += 1
+        return self.next - 1
+
+    def reset(self):
+        """
+        reset number to original start
+        """
+        self.next = self.start
 
 
