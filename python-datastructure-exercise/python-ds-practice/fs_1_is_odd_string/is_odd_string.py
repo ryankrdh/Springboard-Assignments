@@ -33,6 +33,8 @@ def is_odd_string(word):
     # a 1-based number ("a" = 1, "b" = 2). To do that, let's subtract
     # this from it
 
+    # QUESTION
+    
     DIFF = ord("a") - 1
 
     total = sum((ord(c) - DIFF) for c in word.lower())
