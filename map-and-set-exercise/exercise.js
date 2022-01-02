@@ -2,18 +2,18 @@
 
 // Maps and Sets Exercise
 // -----------------------------------------------
-// Quick Question #1
+// Quick Q #1
 // What does the following code return?
 
 new Set([1, 1, 2, 2, 3, 4]); // {1, 2, 3, 4}
 
 // -----------------------------------------------
-// Quick Question #2
+// Quick Q #2
 // What does the following code return?
 
 [...new Set('referee')].join(''); // "ref"
 // -----------------------------------------------
-// Quick Questions #3
+// Quick Q #3
 // What does the Map m look like after running the following code?
 
 let m = new Map();
@@ -99,7 +99,7 @@ class Triangle {
 // Defines the methods each instance of Triangle will have
 // Make a new triangle with new Triangle()
 // Can still add/look at arbitrary keys (“properties”)
-// this is “the actual triangle in question”
+// this is “the actual triangle in Q”
 // Class names should be UpperCamelCase
 
 // Reduces confusion between triangle (an actual, individual triangle) and Triangle (the class of triangles)

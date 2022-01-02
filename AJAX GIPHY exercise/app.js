@@ -27,8 +27,6 @@
 //
 //
 
-//QUESTION: After I remove all GIFs, another image is fetched.. why?
-
 // --Using JQuery to append ID to variables
 const $appendGif = $('#append-gif');
 const $userSearch = $('#user-search');
@@ -47,7 +45,7 @@ $('form').on('submit', async function (evt) {
   const res = await axios.get('http://api.giphy.com/v1/gifs/search', {
     params: {
       q: $userSearch.val(),
-      api_key: 'MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym', // QUESTIONS: How to find the API KEY?
+      api_key: 'MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym',
     },
   });
   console.log(res);

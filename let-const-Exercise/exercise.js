@@ -11,7 +11,6 @@ PI = 42;
 
 /*
 
-QUESTIONS
 
 1. what is the difference between var and let?
 With var, you can redeclare, it's function scoped, and it is hoisted up.

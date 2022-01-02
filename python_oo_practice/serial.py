@@ -19,4 +19,15 @@ class SerialGenerator:
     >>> serial.generate()
     100
     """
+    def __init__(self, start=0):
+        """
+        Make a new generator, starting at start.
+        """
+        self.start = start
+
+    def __repr__(self):
+        return f"<Random number generated {self.start}>"
+
+    
+
 
