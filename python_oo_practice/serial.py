@@ -36,7 +36,7 @@ class SerialGenerator:
         """
         Return next serial.
         """
-
+        # returns self.next - 1 to return the current generated value instead of the next number.
         self.next += 1
         return self.next - 1
 
