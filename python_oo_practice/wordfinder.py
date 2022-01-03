@@ -3,13 +3,13 @@
 import random
 
 class WordFinder:
-    """ 
-    Random word generator. Uses list of words from words.txt.
+    """ Random word generator. Uses list of words from words.txt.
 
-    wf = WordFinder("/Users/ryankrdh/Documents/GitHub/Springboard-Assignments/python_oo_practice/test.txt")
+    >>> wf = WordFinder("test.txt")
+    3 words read
+
     >>> wf.random() in ["dog", "cat", "rabbit"]
     True
-
     
     """
     def __init__(self, path):
@@ -35,6 +35,5 @@ class WordFinder:
 
         return random.choice(self.words)
 
-# wf = WordFinder("/Users/ryankrdh/Documents/GitHub/Springboard-Assignments/python_oo_practice/test.txt")
-
-# wf.random() in ["dog", "cat", "rabbit"]
+class SpecialWordFinder:
+    
