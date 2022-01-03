@@ -3,7 +3,8 @@
 import random
 
 class WordFinder:
-    """ Random word generator. Uses list of words from words.txt.
+    """ 
+    Random word generator. Uses list of words from words.txt.
 
     >>> wf = WordFinder("test.txt")
     3 words read
@@ -35,5 +36,20 @@ class WordFinder:
 
         return random.choice(self.words)
 
-class SpecialWordFinder:
-    
+class SpecialWordFinder(WordFinder):
+    """
+    SpecializedWordFinder that excludes blank lines and comments
+
+    >>> swf = SpecialWordFinder("complex_text.txt")
+    3 words read
+
+    >>> swf.random() in ["pear", "carrot", "kale"]
+    True
+    """
+
+    def parse(self, words_file):
+        """
+        parse words_file ->n list of words, skipping blanks/comments
+        """
+        # w.strip() means if it returns a string after spaces are stripped. 
+        return [w.strip() for w in words_file if w.strip() and not w.startswith('#')]
