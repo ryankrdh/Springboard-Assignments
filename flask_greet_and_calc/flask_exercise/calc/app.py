@@ -45,3 +45,19 @@ def multiplication():
 
     return str(result)
 
+operators = {
+    "add": add,
+    "sub": sub,
+    "mult": mult,
+    "div": div,
+    }
+
+@app.route('/math/<math>')
+def calculate(math):
+    """Calculates integers a and b depending on route"""
+
+    a = int(request.args.get("a"))
+    b = int(request.args.get("b"))
+    result = operators[math](a,b)
+
+    return str(result)
