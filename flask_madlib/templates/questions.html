@@ -7,10 +7,14 @@
     <title>MadLib</title>
 </head>
 <body>
-    <form>
-        <label for="verb">VERB:</label><br>
-        <input type="text" id="verb" name="verb">
-        <input type="submit" value="Submit">
+    <h1>Madlibs</h1>
+    <form action="/story">
+        {% for prompt in prompts %}
+            <p>{{ prompt }}:
+                <input name="{{ prompt }}">
+            </p>
+        {% endfor %}
+        <button>Submit</button>
     </form>
 </body>
 </html>

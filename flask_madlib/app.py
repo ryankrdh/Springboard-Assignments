@@ -10,5 +10,17 @@ debug = DebugToolbarExtension(app)
 def ask_questions():
     """This will generate and show form to ask words."""
 
+    # grabs the stories from story class in stories.py
     prompts = story.prompts
 
+    # adding prompts as keyword arguments as propmts.
+    return render_template("questions.html", prompts=prompts)
+
+@app.route("/story")
+def show_story():
+    """Show story result"""
+
+    # .generate is from story class from stories.py
+    text = story.generate(request.args)
+
+    return render_template("story.html", text=text)
