@@ -27,8 +27,10 @@ class Story:
     def generate(self, answers):
         """Substitute answers into text."""
 
+        # question: why can't we just have generate(self,answers,text) instead of calling text in __init__
         text = self.template
 
+        # this is the code that replaces the key words in the story with the answer
         for (key, val) in answers.items():
             text = text.replace("{" + key + "}", val)
 
