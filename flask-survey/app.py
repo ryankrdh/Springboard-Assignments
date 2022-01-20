@@ -22,4 +22,4 @@ def show_question():
     """Displays the questions"""
     all_question = [ item.question for item in satisfaction_survey.questions ]
     # QUESTION: difference between using render_template vs redirect?
-    return redirect("question0.html", question=all_question, survey=satisfaction_survey)
+    return render_template("question0.html", question=all_question, survey=satisfaction_survey)
