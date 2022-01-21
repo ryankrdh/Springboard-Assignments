@@ -3,16 +3,12 @@
 {% block content %}
 <main id="content">
     <h1> {{ survey.title }} </h1>
+    <p>{{question.question}}</p>
     <form action="/answer" method="POST">
-        <p>{{question[0]}}</p>
-        <div>
-            <input type="radio" name="answer" id="yes">
-            <label for="yes">Yes</label>
-        </div>
-        <div>
-            <input type="radio" name="answer" id="no">
-            <label for="yes">No</label>
-        </div>
+        {% for choice in question.choices %}
+        <!-- If the choices are provided, they will be listed in in the input, if not it will just use yes or no -->
+        <p><input type="radio" name="answer" value="{{ choice }}"> {{ choice }}</p>
+        {% endfor %}
         <button>Continue</button>
     </form>
 </main>

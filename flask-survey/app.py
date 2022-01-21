@@ -1,9 +1,10 @@
+# QUESTION: This appeared out of nowhere what is this?
 from os import supports_bytes_environ
-from flask import Flask, request, render_template, redirect, session
+from flask import Flask, request, render_template, redirect, session, flash
 from flask_debugtoolbar import DebugToolbarExtension
 from surveys import satisfaction_survey
 
-# QUESTION: can I get an explanation to RESPONSES_KEY = "responses". why cant we just use responses = []
+# QUESTION: can I get an explanation to RESPONSES_KEY = "responses". why cant we just use responses = []. Also why the string "responses"?
 # key names will use to store some things in the session;
 # put here as constants so we're guaranteed to be consistent in
 # our spelling of these
@@ -34,31 +35,62 @@ def start_survey():
 
     return redirect("/questions/0")
 
-@app.route("/questions/0", methods=["POST"])
-def show_question0():
-    """Displays the questions"""
-    all_question = [ item.question for item in satisfaction_survey.questions ]
+# @app.route("/questions/0")
+# def show_question0():
+#     """Displays the questions"""
+#     all_question = [ item.question for item in satisfaction_survey.questions ]
 
+
+#     # QUESTION: difference between using render_template vs redirect?
+#     return render_template("question0.html", question=all_question, survey=satisfaction_survey)
+
+# QUESTION: I need explanation for <int:qid> I understand that it is used to pass the number after /questions/. Also why not use f string?
+# QUESTION: How come we aren't using methods=["GET"]
+@app.route("/questions/<int:qid>")
+def show_question(qid):
+    """Display current question."""
+    responses = session.get(RESPONSES_KEY)
+
+    if (responses is None):
+        # redirects the user to home page if pt tries to jump to questions too soon
+        return redirect("/")
     
+    if (len(responses) == len(satisfaction_survey.questions)):
+        # if the user has answered all questions. Go to completed page
+        return redirect("/complete")
+    
+    if (len(responses) != qid):
+        # Trying to access questions out of order.
+        flash(f"Invalid question id: {qid}.")
+        return redirect(f"/questions/{len(responses)}")
 
+    # html will access questions by using quesst
+    question = satisfaction_survey.questions[qid]
+    return render_template("question0.html", question_num=qid, question=question, survey=satisfaction_survey)
 
-    # QUESTION: difference between using render_template vs redirect?
-    return render_template("question0.html", question=all_question, survey=satisfaction_survey)
+@app.route("/complete")
+def complete():
+    """Survey complete. Show completion page."""
 
-@app.route("/questions/1", methods=["POST"])
-def show_question1():
-    """Displays the questions"""
-    all_question = [ item.question for item in satisfaction_survey.questions ]
-    # QUESTION: difference between using render_template vs redirect?
-    return render_template("question1.html", question=all_question, survey=satisfaction_survey)
+    return render_template("complete.html")
+
 
 # QUESTION: why is it methods in python file and method in html?
 @app.route("/answer", methods=["POST"])
 def save_response():
     """Saves responses and continues on to next question"""
-    all_question = [ item.question for item in satisfaction_survey.questions ]
+    
     # grabs the user response
     choice = request.form["answer"]
+
+    # add this response choice
+    # QUESTION: I need help understanding better. so session[RESPONSES_KEY] is a temp data storage with variable with responses. and we are appending the user's choice in responses. After that we are saving the variable with the saved response back in the session[RESPONSES_KEY] data?
+    responses = session[RESPONSES_KEY]
     responses.append(choice)
-    return redirect(f"/questions/1")
-    # if (len(responses) == len(satisfaction_survey.questions)):
+    session[RESPONSES_KEY] = responses
+    
+    if (len(responses) == len(satisfaction_survey.questions)):
+        # The user has answered all the questions.
+        return redirect("/complete")
+    else:
+        return redirect(f"/questions/{len(responses)}")
