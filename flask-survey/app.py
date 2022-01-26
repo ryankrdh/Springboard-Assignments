@@ -1,15 +1,14 @@
-# QUESTION: This appeared out of nowhere what is this?
-from os import supports_bytes_environ
+# from os import supports_bytes_environ
 from flask import Flask, request, render_template, redirect, session, flash
 from flask_debugtoolbar import DebugToolbarExtension
 from surveys import satisfaction_survey
 
-# QUESTION: can I get an explanation to RESPONSES_KEY = "responses". why cant we just use responses = []. Also why the string "responses"?
+# QUESTION: can I get an explanation to RESPONSES_KEY = "responses". why cant we just use responses = []. Also why the string "responses"? 
+# its a field on session object. (its the key of the response)
 # key names will use to store some things in the session;
 # put here as constants so we're guaranteed to be consistent in
 # our spelling of these
 RESPONSES_KEY = "responses"
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "rhk"
@@ -28,9 +27,9 @@ def home_page():
 def start_survey():
     """clears the session and starts the survey"""
 
-    # QUESTION: flask session is used to store temporary information. for permanent data, use a database. 
+    # Q: flask session is used to store temporary information. for permanent data, use a database. 
     # So what's the difference between using an empty list vs session. Is it just for non sens. data like user logged in or not?
-    # QUESTION: When using get or post methods, do we need to use redirect?
+    # empty list will only exist during the duration of the function
     session[RESPONSES_KEY] = []
 
     return redirect("/questions/0")
