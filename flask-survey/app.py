@@ -14,8 +14,6 @@ app.config['SECRET_KEY'] = "rhk"
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
 
-# all_question = [ item.question for item in satisfaction_survey.questions]
-
 @app.route("/")
 def home_page():
     """Shows the home page."""
@@ -27,7 +25,6 @@ def start_survey():
     """clears the session and starts the survey"""
 
     # Q: flask session is used to store temporary information. for permanent data, use a database. 
-    # So what's the difference between using an empty list vs session. Is it just for non sens. data like user logged in or not?
     # empty list will only exist during the duration of the function
     session[RESPONSES_KEY] = []
 
@@ -39,8 +36,7 @@ def start_survey():
 #     all_question = [ item.question for item in satisfaction_survey.questions ]
 
 
-#     # QUESTION: difference between using render_template vs redirect?
-#     return render_template("question0.html", question=all_question, survey=satisfaction_survey)
+# render_template instead of redirect will needlessly run codes you already ran.
 
 # QUESTION: I need explanation for <int:qid> I understand that it is used to pass the number after /questions/. Also why not use f string?
 # QUESTION: How come we aren't using methods=["GET"]
