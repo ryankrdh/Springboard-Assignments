@@ -3,8 +3,7 @@ from flask import Flask, request, render_template, redirect, session, flash
 from flask_debugtoolbar import DebugToolbarExtension
 from surveys import satisfaction_survey
 
-# QUESTION: can I get an explanation to RESPONSES_KEY = "responses". why cant we just use responses = []. Also why the string "responses"? 
-# its a field on session object. (its the key of the response)
+# "responses" is a field on session object. (its the key of the response)
 # key names will use to store some things in the session;
 # put here as constants so we're guaranteed to be consistent in
 # our spelling of these
@@ -74,12 +73,12 @@ def complete():
     return render_template("complete.html")
 
 
-# QUESTION: why is it methods in python file and method in html?
 @app.route("/answer", methods=["POST"])
 def save_response():
     """Saves responses and continues on to next question"""
     
     # grabs the user response
+    # QUESTION: request.form vs request.get
     choice = request.form["answer"]
 
     # add this response choice
