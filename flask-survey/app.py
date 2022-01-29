@@ -58,9 +58,9 @@ def show_question(qid):
         flash(f"Invalid question id: {qid}.")
         return redirect(f"/questions/{len(responses)}")
 
-    # html will access questions by using quesst
+    # html will access questions by using question
     question = satisfaction_survey.questions[qid]
-    return render_template("question0.html", question_num=qid, question=question, survey=satisfaction_survey)
+    return render_template("question0.html", question=question, survey=satisfaction_survey)
 
 @app.route("/complete")
 def complete():
