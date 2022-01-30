@@ -20,6 +20,7 @@ def home_page():
 
     return render_template("survey_home.html", survey=satisfaction_survey)
 
+# QUESTION: is this route "POST" because we are posting a variable "responses" with an empty list?
 @app.route("/start", methods=["POST"])
 def start_survey():
     """clears the session and starts the survey"""
@@ -39,7 +40,7 @@ def start_survey():
 # render_template instead of redirect will needlessly run codes you already ran.
 
 # QUESTION: I need explanation for <int:qid> I understand that it is used to pass the number after /questions/. Also why not use f string?
-# QUESTION: How come we aren't using methods=["GET"]
+# QUESTION: How come we aren't using methods=["POST"] is it because the actual "POST" has the action /answer?
 @app.route("/questions/<int:qid>")
 def show_question(qid):
     """Display current question."""
@@ -79,7 +80,7 @@ def save_response():
     choice = request.form["answer"]
 
     # add this response choice
-    # QUESTION: I need help understanding better. so session[RESPONSES_KEY] is a temp data storage with variable with responses. and we are appending the user's choice in responses. After that we are saving the variable with the saved response back in the session[RESPONSES_KEY] data?
+    # QUESTION: I want to be clear on this topic. so session[RESPONSES_KEY] is a temp data storage with variable with responses. and we are appending the user's choice in responses. After that we are saving the variable with the saved response back in the session[RESPONSES_KEY] data?
     responses = session[RESPONSES_KEY]
     responses.append(choice)
     session[RESPONSES_KEY] = responses
