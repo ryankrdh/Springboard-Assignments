@@ -45,17 +45,18 @@ def show_question(qid):
     """Display current question."""
     responses = session.get(RESPONSES_KEY)
 
-    if (responses is None):
-        # redirects the user to home page if pt tries to jump to questions too soon
-        return redirect("/")
+    # QUESTION: This doesn't seem to work, is it needed? it loads the if (len(responses) != qid) instead.
+    # if (responses is None):
+    #     # redirects the user to home page if pt tries to jump to questions too soon
+    #     return redirect("/")
     
     if (len(responses) == len(satisfaction_survey.questions)):
         # if the user has answered all questions. Go to completed page
         return redirect("/complete")
     
     if (len(responses) != qid):
-        # Trying to access questions out of order.
-        flash(f"Invalid question id: {qid}.")
+        # Trying to access questions out of order. 'error' is flash category.
+        flash(f"You were trying to jump to question {qid}.", 'ERROR')
         return redirect(f"/questions/{len(responses)}")
 
     # html will access questions by using question
