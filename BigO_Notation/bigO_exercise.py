@@ -28,7 +28,6 @@ function logAtLeast10(n) {
 }
 # O(n)
 
-# QUESTION: why does the min. operator make it O(1) instead of O(n)
 # 3)
 function logAtMost10(n) {
   for (let i = 1; i <= Math.min(n, 10); i++) {
