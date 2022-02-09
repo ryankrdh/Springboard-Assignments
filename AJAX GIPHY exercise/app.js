@@ -40,6 +40,7 @@ function addGif(res) {
 
 // --Using JQuery to handle click events.
 $('form').on('submit', async function (evt) {
+  // if not it might get full?
   evt.preventDefault();
 
   const res = await axios.get('http://api.giphy.com/v1/gifs/search', {
