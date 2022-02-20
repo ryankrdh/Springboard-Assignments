@@ -18,5 +18,10 @@ def homepage():
     # saves value of board to a key:board in session.
     session['board'] = board
 
-    # 
+    # sets key of high score to 0.
     highscore = session.get("highscore", 0)
+    
+    # sets key of number of plays to 0.
+    nplays = session.get("nplays", 0)
+
+    return render_template("index.html", board=board, highscore=highscore, nplays=nplays)
