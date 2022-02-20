@@ -1,10 +1,14 @@
 from flask import Flask, request, render_template, session, jsonify
+from flask_debugtoolbar import DebugToolbarExtension
 from boggle import Boggle
 
 boggle_game = Boggle()
 
 app = Flask(__name__)
+app.debug = True
 app.config["SECRET_KEY"] = "rhk"
+
+toolbar = DebugToolbarExtension(app)
 
 boggle_game = Boggle()
 
