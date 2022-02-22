@@ -1,14 +1,17 @@
+.board td {
+  width: 1.5em;
+  height: 1.5em;
+  font-size: 2em;
+  text-align: center;
+  border: 2px solid blue;
+  border-radius: 30%;
+}
+
 .board {
   board: solid 1px black;
   font-family: monospace;
   font-weight: bold;
   font-size: 200%;
-}
-
-.board td {
-  text-align: center;
-  width: 1.5em;
-  height: 1.5em;
 }
 
 .msg {

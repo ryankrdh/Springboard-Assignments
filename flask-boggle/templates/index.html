@@ -7,6 +7,7 @@
     <body>
         <section id="boggle">
             <table class="board">
+                <!-- Using Jinja to create the board using loop within a loop -->
                 <tbody>
                     {% for row in board %}
                     <tr>
@@ -27,7 +28,7 @@
                 Score: <b class="score">0</b>
                 Seconds Left: <b class="timer"></b>
             </p>
-
+            <!-- input form for the user -->
             <form method="POST" class="add-word">
                 <!-- autofocus is a boolean attribute indicating that an element should be focused on page load. -->
                 <input name="word" class="word" autofocus>

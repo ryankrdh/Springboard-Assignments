@@ -27,6 +27,7 @@ def homepage():
     # sets key of number of plays to 0.
     nplays = session.get("nplays", 0)
 
+    
     return render_template("index.html", board=board, highscore=highscore, nplays=nplays)
 
 
@@ -34,10 +35,12 @@ def homepage():
 def check_word():
     """Check if word is in dictionary."""
 
+    # grabs the word
     word = request.args["word"]
     board = session["board"]
     response = boggle_game.check_valid_word(board, word)
 
+    # we need to jsonify since ajax request uses JSON.
     return jsonify({'result': response})
 
 

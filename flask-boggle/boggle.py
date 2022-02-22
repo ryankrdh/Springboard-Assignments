@@ -21,8 +21,10 @@ class Boggle():
     def make_board(self):
         """Make and return a random boggle board."""
 
+        # this creates an empty array for the board
         board = []
 
+        # creates 5x5  game board.
         for y in range(5):
             row = [choice(string.ascii_uppercase) for i in range(5)]
             board.append(row)
@@ -33,6 +35,7 @@ class Boggle():
         """Check if a word is a valid word in the dictionary and/or the boggle board"""
 
         word_exists = word in self.words
+        # this calls another function calld find. It takes in a board and a word to return a string for the if conditional below.
         valid_word = self.find(board, word.upper())
 
         if word_exists and valid_word:

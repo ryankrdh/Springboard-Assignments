@@ -39,7 +39,10 @@ class BoggleGame {
     evt.preventDefault();
     const $word = $('.word', this.board);
 
+    // creates a word variable that equals the submitted word from the form
     let word = $word.val();
+
+    // returns nothing if the form is empty
     if (!word) return;
 
     if (this.words.has(word)) {
@@ -47,7 +50,8 @@ class BoggleGame {
       return;
     }
 
-    // check server for validity
+    // sends this to the app.py to have the word checked for validity.
+    //
     const resp = await axios.get('/check-word', { params: { word: word } });
     if (resp.data.result === 'not-word') {
       this.showMessage(`${word} is not a valid English word`, 'err');
