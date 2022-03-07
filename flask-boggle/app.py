@@ -38,6 +38,7 @@ def check_word():
     # grabs the word
     word = request.args["word"]
     board = session["board"]
+    # runs the function from boggle.py to check the word
     response = boggle_game.check_valid_word(board, word)
 
     # we need to jsonify since ajax request uses JSON.
@@ -48,10 +49,12 @@ def check_word():
 def post_score():
     """Receive score, update nplays, update high score if appropriate."""
 
+    #grabs the data.
     score = request.json["score"]
     highscore = session.get("highscore", 0)
     nplays = session.get("nplays", 0)
 
+    # updates the score in the session storage
     session['nplays'] = nplays + 1
     session['highscore'] = max(score, highscore)
 

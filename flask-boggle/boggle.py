@@ -94,7 +94,7 @@ class Boggle():
         seen = seen | {(y, x)}
 
         # adding diagonals
-
+        
         if y > 0:
             if self.find_from(board, word[1:], y - 1, x, seen):
                 return True
